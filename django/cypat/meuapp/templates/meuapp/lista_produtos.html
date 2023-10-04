@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" type="text/css" href="/static/meuapp/css/estilos.css" />
+  </head>
+  <body>
+    <h1>Lista de Produtos</h1>
+
+    <ul>
+      {% for produto in produtos %}
+        <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Inserir Novo Produto:</h2>
+    <form method="post" action="{% url 'inserir_produto' %}">
+      {% csrf_token %}Nome:<input type="text" name="nome" /><br />
+      Preço:<input type="text" name="preco" /><br />
+      Categoria:<select name="categoria">
+        {% for categoria in categorias %}
+          <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+        {% endfor %}
+      </select><br />
+      <input type="submit" value="Inserir Produto" id="submit-button" />
+    </form>
+    <script src="/static/meuapp/js/script.js"></script>
+  </body>
+</html>
