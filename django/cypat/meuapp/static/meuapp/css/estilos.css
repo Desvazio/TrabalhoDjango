@@ -47,6 +47,7 @@ form select {
 
 form button[type="submit"] {
     background-color: #4caf50;
+    margin: 5px;
     color: #fff;
     border: none;
     border-radius: 4px;

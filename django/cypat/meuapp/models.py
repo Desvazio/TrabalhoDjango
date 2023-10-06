@@ -1,28 +1,15 @@
 from django.db import models
 
-
-class Categoria(models.Model):
+class ItemEstoque(models.Model):
+    # Define um campo de texto para o nome do item com no máximo 100 caracteres
     nome = models.CharField(max_length=100)
+    
+    # Define um campo de texto para a descrição do item (pode ser mais longa)
+    descricao = models.TextField()
+    
+    # Define um campo para a quantidade do item, com valor padrão de 0
+    quantidade = models.PositiveIntegerField(default=0) 
 
+    # Define como o item é representado quando convertido para string
     def __str__(self):
         return self.nome
-
-
-class Produto(models.Model):
-    nome = models.CharField(max_length=100)
-    preco = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    categoria = models.ForeignKey(
-        Categoria, on_delete=models.CASCADE, default=0)
-
-    def __str__(self):
-        return self.nome
-
-class Pedido(models.Model):
-    nome_cliente = models.CharField(max_length=100)
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    quantidade = models.PositiveIntegerField()
-
-    def __str__(self):
-        return f'{self.nome_cliente} - {self.produto.nome}'
-
-# Create your models here.

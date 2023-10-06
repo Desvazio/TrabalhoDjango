@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detalhes do Item</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/meuapp/css/estilos.css" />
+  </head>
+  <body class="container">
+    <h1>Detalhes do Item</h1>
+
+    <p class="item-detalhar">
+      Nome do item: <span class="item-info">{{ item.nome }}</span>
+    </p>
+    <p>Descrição do Item: {{ item.descricao }}</p>
+    <p>Quantidade do Item: {{ item.quantidade}}</p>
+
+    <a href="{% url 'lista_produtos' %}">Voltar para Lista Produtos</a>
+
+    <!-- Cria um link para a página de edição do item -->
+    <a href="{% url 'editar_item' item.id %}" class="button">Editar Item</a>
+    <!-- Cria um link para a página de confirmação de exclusão do item -->
+    <a href="{% url 'confirmar_exclusao_item' item.id %}" class="button">Excluir Item</a>
+  </body>
+</html>
