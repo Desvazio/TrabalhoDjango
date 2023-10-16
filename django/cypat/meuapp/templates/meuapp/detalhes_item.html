@@ -14,11 +14,18 @@
     <p>Descrição do Item: {{ item.descricao }}</p>
     <p>Quantidade do Item: {{ item.quantidade}}</p>
 
-    <a href="{% url 'lista_produtos' %}">Voltar para Lista Produtos</a>
+    <a href="{% url 'lista_produtos' %}"><button class="button" type="submit">Voltar para Lista Produtos</button>
+    </a>
+    
+    
 
     <!-- Cria um link para a página de edição do item -->
-    <a href="{% url 'editar_item' item.id %}" class="button">Editar Item</a>
+    <a href="{% url 'editar_item' item.id %}" class="button"><button class="button" type="submit">Editar Item</button>
+    </a>
+
+    
     <!-- Cria um link para a página de confirmação de exclusão do item -->
-    <a href="{% url 'confirmar_exclusao_item' item.id %}" class="button">Excluir Item</a>
+    <a href="{% url 'confirmar_exclusao_item' item.id %}" class="button"><button class="button" type="submit">Excluir Item</button>
+    </a>
   </body>
 </html>
